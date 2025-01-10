@@ -2011,6 +2011,9 @@ export namespace stream {
 			 * @default 'ignore'
 			 */
 			entries?: 'emit' | 'ignore';
+			readTmpFile?: (path: string) => Readable | Promise<Readable>
+			writeTmpFile?: (path: string) => Writable | Promise<Writable>
+			createTmpFile?: (fn: (err?: Error, path: string, fd?: unknown, cleanup: () => void) => void) => void
 		}
 
 		class WorkbookReader extends Workbook {
